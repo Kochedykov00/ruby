@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Page of new</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 offset-md-4">
+      <a href="/news">All news </a>
+
+      <div>New: <%= @new["text"] %></div>
+      <br/>
+      <div>Comments: </div>
+      <% @comments.each do |elem| %>
+          <div><%= elem["text"] %> <a style="color:red" href="/new/<%= @new["id"] %>/delete/<%= elem["id"] %>">X</a> </div>
+      <% end %>
+
+      <form action="/new" method="post">
+        <div class="form-group">
+            <input name="text" class="form-control"/>
+          </div>
+        <button name="new" value="<%= @new["id"] %>" type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    </div>
+    </div>
+
+
+  </body>
+
+</html>
+
+  
